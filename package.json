@@ -30,6 +30,7 @@
     "node": "~15.0.0"
   },
   "dependencies": {
+    "@yeldirium/telegraf-authentication-middleware": "1.1.4",
     "assertthat": "5.2.1",
     "defekt": "5.2.1",
     "flaschenpost": "4.3.16",
