@@ -5,14 +5,15 @@
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": 2019,
+    "ecmaVersion": 2021,
+    "sourceType": "module",
     "ecmaFeatures": {
       "impliedStrict": true
     }
   },
   "env": {
     "node": true,
-    "es2017": true
+    "es2021": true
   },
   "rules": {
     "no-unused-vars": ["error", {
