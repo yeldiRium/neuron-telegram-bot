@@ -12,17 +12,13 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js
+      - uses: actions/checkout@v2
+      - name: Use Node.js v15
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
-      - name: Install dependencies
-        run: |
-          npm install
-      - name: Run tests
-        run: |
-          npm test
+      - run: npm ci
+      - run: npm test
       - name: Release
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
