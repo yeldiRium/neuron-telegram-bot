@@ -18,9 +18,6 @@ const loadConfig = function () {
   if (config.GIT.REMOTE_URL === "") {
     throw new errors.GitRemoteUrlMissing();
   }
-  if (config.GIT.DIRECTORY === "") {
-    throw new errors.GitDirectoryMissing();
-  }
 
   return config;
 };

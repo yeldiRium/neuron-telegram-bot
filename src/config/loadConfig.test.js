@@ -9,8 +9,7 @@ describe("loadConfig", () => {
   const botToken = "654948132:NQGF234obviouslynotrealqev453Fflvge",
     gitUsername = "someUser",
     gitPassword = "somePassword",
-    gitRemoteUrl = "https://github.com/bla/blub.git",
-    gitDirectory = "./blub";
+    gitRemoteUrl = "https://github.com/bla/blub.git";
 
   test("throws an error if no bot token is given.", async () => {
     const reset = nodeenv({
@@ -18,7 +17,6 @@ describe("loadConfig", () => {
       NEURONTG_GIT__USERNAME: "",
       NEURONTG_GIT__PASSWORD: "",
       NEURONTG_GIT__REMOTE_URL: "",
-      NEURONTG_GIT__DIRECTORY: "",
     });
 
     assert
@@ -41,7 +39,6 @@ describe("loadConfig", () => {
       NEURONTG_GIT__USERNAME: "",
       NEURONTG_GIT__PASSWORD: "",
       NEURONTG_GIT__REMOTE_URL: "",
-      NEURONTG_GIT__DIRECTORY: "",
     });
 
     assert
@@ -63,7 +60,6 @@ describe("loadConfig", () => {
       NEURONTG_GIT__USERNAME: gitUsername,
       NEURONTG_GIT__PASSWORD: "",
       NEURONTG_GIT__REMOTE_URL: "",
-      NEURONTG_GIT__DIRECTORY: "",
     });
 
     assert
@@ -85,7 +81,6 @@ describe("loadConfig", () => {
       NEURONTG_GIT__USERNAME: gitUsername,
       NEURONTG_GIT__PASSWORD: gitPassword,
       NEURONTG_GIT__REMOTE_URL: "",
-      NEURONTG_GIT__DIRECTORY: "",
     });
 
     assert
@@ -101,35 +96,12 @@ describe("loadConfig", () => {
     reset();
   });
 
-  test("throws an error if no git directory is given.", async () => {
-    const reset = nodeenv({
-      NEURONTG_TELEGRAM_TOKEN: botToken,
-      NEURONTG_GIT__USERNAME: gitUsername,
-      NEURONTG_GIT__PASSWORD: gitPassword,
-      NEURONTG_GIT__REMOTE_URL: gitRemoteUrl,
-      NEURONTG_GIT__DIRECTORY: "",
-    });
-
-    assert
-      .that(() => {
-        loadConfig();
-      })
-      .is.throwing((error) => {
-        return (
-          isCustomError(error) && error.code === errors.GitDirectoryMissing.code
-        );
-      });
-
-    reset();
-  });
-
   test("loads the bot token successfully from the environment.", async () => {
     const reset = nodeenv({
       NEURONTG_TELEGRAM_TOKEN: botToken,
       NEURONTG_GIT__USERNAME: gitUsername,
       NEURONTG_GIT__PASSWORD: gitPassword,
       NEURONTG_GIT__REMOTE_URL: gitRemoteUrl,
-      NEURONTG_GIT__DIRECTORY: gitDirectory,
     });
 
     const config = loadConfig();
