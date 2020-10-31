@@ -32,6 +32,7 @@
   "dependencies": {
     "assertthat": "5.2.1",
     "defekt": "5.2.1",
+    "flaschenpost": "4.3.16",
     "isomorphic-git": "1.7.8",
     "p-queue": "6.6.2",
     "rc": "1.2.8",

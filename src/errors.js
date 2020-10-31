@@ -5,6 +5,7 @@ const errors = defekt({
   GitPasswordMissing: {},
   GitRemoteUrlMissing: {},
   GitUsernameMissing: {},
+  LogLevelInvalid: {},
   TelegramAdminPasswordMissing: {},
   TelegramTokenMissing: {},
 });
