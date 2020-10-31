@@ -9,6 +9,15 @@ const loadConfig = function () {
   if (config.TELEGRAM_TOKEN === "") {
     throw new errors.TelegramTokenMissing();
   }
+  if (config.GIT.USERNAME === "") {
+    throw new errors.GitUsernameMissing();
+  }
+  if (config.GIT.PASSWORD === "") {
+    throw new errors.GitPasswordMissing();
+  }
+  if (config.GIT.REMOTE_URL === "") {
+    throw new errors.GitRemoteUrlMissing();
+  }
 
   return config;
 };
