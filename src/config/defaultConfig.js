@@ -1,5 +1,8 @@
 const defaultConfig = {
-  TELEGRAM_TOKEN: "",
+  TELEGRAM: {
+    TOKEN: "",
+    ADMIN_PASSWORD: "",
+  },
   GIT: {
     USERNAME: "",
     PASSWORD: "",

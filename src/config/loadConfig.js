@@ -6,7 +6,13 @@ import { errors } from "../errors.js";
 const loadConfig = function () {
   const config = rc("NEURONTG", defaultConfig);
 
-  if (config.TELEGRAM_TOKEN === "") {
+  if (config.TELEGRAM.TOKEN === "") {
+    throw new errors.TelegramTokenMissing();
+  }
+  if (config.TELEGRAM.ADMIN_PASSWORD === "") {
+    throw new errors.TelegramAdminPasswordMissing();
+  }
+  if (config.TELEGRAM.ADMIN_PASSWORD === "") {
     throw new errors.TelegramTokenMissing();
   }
   if (config.GIT.USERNAME === "") {
