@@ -3,21 +3,41 @@ import { errors } from "../../errors.js";
 
 const logger = flaschenpost.getLogger();
 
+const formatLogMessage = function (ctx) {
+  let message = "";
+
+  message += ctx.updateType;
+
+  if (ctx.updateTypes !== undefined && Array.isArray(ctx.updateTypes)) {
+    message += `|${ctx.updateTypes.join(",")}`;
+  }
+
+  message += ` #${ctx.update.update_id}`;
+
+  message += ` from ${ctx.update.message.from.id}`;
+
+  if (ctx.update.message.from.id < 0) {
+    message += " (a group)";
+  } else {
+    message += ` (${
+      ctx.update.message.from.username ??
+      ctx.update.message.from.first_name ??
+      "<anonymous"
+    })`;
+  }
+
+  return message;
+};
+
 const getLoggingMiddleware = function ({ logLevel = "info" }) {
   return (ctx, next) => {
     if (!Reflect.has(logger, logLevel)) {
       throw new errors.LogLevelInvalid(undefined, { data: { logLevel } });
     }
 
-    // const logMessage = formatLogMessageFromTelegrafContext(ctx);
+    const logMessage = formatLogMessage(ctx);
 
-    if (Reflect.has(ctx, "message")) {
-      logger[logLevel]("Received an update.", { message: ctx.message });
-    } else {
-      logger[logLevel]("Received an update without a message.", {
-        message: ctx.message,
-      });
-    }
+    logger[logLevel](logMessage);
 
     next();
   };
