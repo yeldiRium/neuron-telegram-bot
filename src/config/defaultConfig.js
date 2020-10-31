@@ -4,6 +4,7 @@ const defaultConfig = {
     USERNAME: "",
     PASSWORD: "",
     REMOTE_URL: "",
+    DIRECTORY: "",
   },
 };
 

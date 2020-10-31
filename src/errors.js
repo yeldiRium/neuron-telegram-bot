@@ -1,9 +1,10 @@
 import { defekt } from "defekt";
 
 const errors = defekt({
-  GitUsernameMissing: {},
+  GitDirectoryMissing: {},
   GitPasswordMissing: {},
   GitRemoteUrlMissing: {},
+  GitUsernameMissing: {},
   TelegramTokenMissing: {},
 });
 
