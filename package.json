@@ -21,8 +21,8 @@
     "start": "NODE_ENV=production node src/index.js",
     "start:dev": "NODE_ENV=development nodemon src/index.js",
     "test": "npm run test:lint && npm run test:jest",
-    "test:jest": "jest",
-    "test:watch": "jest --watch",
+    "test:jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "test:lint": "eslint \"**/*.js\"",
     "test:lint:fix": "eslint --fix \"**/*.js\""
   },
@@ -30,8 +30,11 @@
     "node": "~15.0.0"
   },
   "dependencies": {
+    "assertthat": "5.2.1",
+    "defekt": "5.2.1",
     "isomorphic-git": "1.7.8",
     "p-queue": "6.6.2",
+    "rc": "1.2.8",
     "telegraf": "3.38.0"
   },
   "devDependencies": {
@@ -44,6 +47,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "jest": "26.6.1",
     "jest-extended": "0.11.5",
+    "nodeenv": "3.0.25",
     "nodemon": "2.0.6",
     "prettier": "2.1.2",
     "semantic-release": "17.2.2",

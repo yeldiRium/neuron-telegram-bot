@@ -16,8 +16,6 @@
     "es2021": true
   },
   "rules": {
-    "no-unused-vars": ["error", {
-      "ignoreRestSiblings": true
-    }]
+    "jest/expect-expect": "off"
   }
 }
