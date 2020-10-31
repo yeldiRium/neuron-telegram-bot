@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  neuron-telegram-bot:
+    build: .
+    command: ["npm", "run", "start:dev"]
+    init: true
+    env_file:
+      - .env
+    volumes:
+      - ./src:/usr/app/src

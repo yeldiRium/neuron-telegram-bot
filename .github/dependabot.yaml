@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    assignees:
+      - yeldiRium
+    commit_message:
+      prefix: fix(npm)
+      prefix-development: chore(npm)
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    assignees:
+      - yeldiRium
+    commit_message:
+      prefix: fix(docker)
+      prefix-development: chore(docker)
