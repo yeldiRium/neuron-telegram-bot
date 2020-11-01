@@ -8,7 +8,7 @@ You have to configure the application with a git repository in which you maintai
 
 ## Available commands
 
-## /new_note
+### /new_note
 
 Creates a new note and takes the entire message (except for the command in the beginning) as the note's content.
 
